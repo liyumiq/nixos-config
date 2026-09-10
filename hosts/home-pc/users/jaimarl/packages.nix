@@ -25,6 +25,8 @@
         lua-language-server
         vscode-langservers-extracted
         marksman
+
+        vscodium
     ];
 
     programs = {

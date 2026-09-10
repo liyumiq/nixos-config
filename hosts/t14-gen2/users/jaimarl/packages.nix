@@ -25,7 +25,6 @@
         lua-language-server
         vscode-langservers-extracted
         marksman
-        nixd
     ];
 
     programs = {

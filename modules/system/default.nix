@@ -7,8 +7,8 @@
         ./hardware/bluetooth.nix
         ./hardware/wifi.nix
 
+        ./aagl.nix
         ./steam.nix
         ./virtualisation.nix
-        ./zapret.nix
     ];
 }

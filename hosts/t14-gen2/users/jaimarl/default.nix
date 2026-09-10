@@ -27,6 +27,7 @@
         desktop = {
             niri = {
                 enable = true;
+                opacity = 1.0;
                 lockscreen.output = "eDP-1";
                 userConfig = ''
                     output "eDP-1" {
@@ -86,7 +87,6 @@
         };
     };
     
-    xdg.configFile."noctalia/lockscreen-widgets.toml".source = ./config/noctalia-widgets.toml;
     programs.noctalia.settings = {
         wallpaper.transition_on_startup = true;
         battery.warning_threshold = 10;

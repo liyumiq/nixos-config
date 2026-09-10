@@ -28,10 +28,10 @@ config = lib.mkIf option.enable {
             shell.niri_overview_type_to_launch_enabled = lib.mkIf niri.enable true;
 
             # Niri Opacity
-            dock.background_opacity = lib.mkIf niri.enable niri.opacity;
-            notification.background_opacity = lib.mkIf niri.enable niri.opacity;
-            osd.background_opacity = lib.mkIf niri.enable niri.opacity;
-            bar.default.background_opacity = lib.mkIf niri.enable niri.opacity;
+            # dock.background_opacity = lib.mkIf niri.enable niri.opacity;
+            # notification.background_opacity = lib.mkIf niri.enable niri.opacity;
+            # osd.background_opacity = lib.mkIf niri.enable niri.opacity;
+            # bar.default.background_opacity = lib.mkIf niri.enable niri.opacity;
         };
     };
 

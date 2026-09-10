@@ -7,6 +7,7 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
         noctalia = {
             url = "github:noctalia-dev/noctalia";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -19,11 +20,18 @@
             url = "github:0xc000022070/zen-browser-flake";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        
-        nixcord.url = "github:FlameFlag/nixcord";
+        nixcord = {
+            url = "github:FlameFlag/nixcord";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        aagl = {
+            url = "github:ezKEa/aagl-gtk-on-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         stylix.url = "github:nix-community/stylix";
         apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
-        zapret-discord-youtube.url = "github:kartavkun/zapret-discord-youtube";
     };
 
     outputs = { nixpkgs, nixpkgs-stable, home-manager, ... } @ inputs: let

@@ -30,13 +30,14 @@ config = {
         nerd-fonts.jetbrains-mono
     ];
 
+    home.pointerCursor.enable = true;
+
     stylix = {
         enable = true;
 
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-${option.flavor}.yaml";
 
         polarity = if option.flavor == "latte" then "light" else "dark";
-
         cursor = {
             package = option.cursor.package;
             name = option.cursor.name;
@@ -45,15 +46,15 @@ config = {
 
         fonts = {
             serif = {
-                package = inputs.apple-fonts.packages.${pkgs.system}.ny;
+                package = inputs.apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.ny;
                 name = "New York";
             };
             sansSerif = {
-                package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro;
+                package = inputs.apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.sf-pro;
                 name = "SF Pro Display";
             };
             monospace = {
-                package = inputs.apple-fonts.packages.${pkgs.system}.sf-mono;
+                package = inputs.apple-fonts.packages.${pkgs.stdenv.hostPlatform.system}.sf-mono;
                 name = "SF Mono";
             };
             emoji = {

@@ -34,6 +34,11 @@ config = lib.mkIf option.enable {
     xdg.configFile."niri/config.kdl".text = ''
         ${option.configLines}
 
+        recent-windows {
+            binds {
+            }
+        }
+
         hotkey-overlay {
             skip-at-startup
         }

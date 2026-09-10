@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stateVersion, ... }: let
+{ config, lib, pkgs, ... }: let
     hostOption = config.host.system;
     hmUsers = config.home-manager.users;
 

@@ -125,6 +125,10 @@ config = lib.mkIf option.enable {
                                 template = "https://search.nixos.org/options";
                                 params = [
                                     {
+                                        name = "type";
+                                        value = "options";
+                                    }
+                                    {
                                         name = "channel";
                                         value = "unstable";
                                     }
@@ -141,15 +145,23 @@ config = lib.mkIf option.enable {
                     "Home Manager Options" = {
                         urls = [
                             {
-                                template = "https://home-manager-options.extranix.com/";
+                                template = "https://search.nixos.org/options";
                                 params = [
+                                    {
+                                        name = "type";
+                                        value = "options";
+                                    }
+                                    {
+                                        name = "channel";
+                                        value = "unstable";
+                                    }
+                                    {
+                                        name = "source";
+                                        value = "home_manager";
+                                    }
                                     {
                                         name = "query";
                                         value = "{searchTerms}";
-                                    }
-                                    {
-                                        name = "release";
-                                        value = "master";
                                     }
                                 ];
                             }
