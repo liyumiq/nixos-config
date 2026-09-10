@@ -26,6 +26,7 @@
         vscode-langservers-extracted
         marksman
 
+        mgba
         vscodium
     ];
 
