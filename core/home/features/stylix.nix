@@ -27,7 +27,7 @@ config = {
         noto-fonts-cjk-serif
         dejavu_fonts
         liberation_ttf
-        nerd-fonts.jetbrains-mono
+        nerd-fonts.iosevka
     ];
 
     home.pointerCursor.enable = true;

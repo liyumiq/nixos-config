@@ -15,6 +15,7 @@ in {
         ./features/audio.nix
         ./features/bootloader.nix
         ./features/graphics.nix
+        ./features/network.nix
         ./features/polkit.nix
 
         ../../modules/system

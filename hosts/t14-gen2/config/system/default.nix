@@ -29,7 +29,6 @@ config = {
         };
         desktop.hyprland.enable = true;
         hardware = {
-            wifi.enable = true;
             bluetooth.enable = true;
         };
         steam.enable = true;

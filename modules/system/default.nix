@@ -7,7 +7,6 @@
         ./desktop/hyprland.nix
         
         ./hardware/bluetooth.nix
-        ./hardware/wifi.nix
 
         ./aagl.nix
         ./steam.nix

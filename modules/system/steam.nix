@@ -1,4 +1,4 @@
-{ config, lib, ... }: let
+{ inputs, config, lib, ... }: let
     option = config.modules.system.steam;
 in {
 

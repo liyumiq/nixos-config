@@ -43,6 +43,7 @@ config = lib.mkIf osConfig.modules.system.desktop.hyprland.enable {
         return {
             packages = {
                 wl_clip_persist = '${pkgs.wl-clip-persist}/bin/wl-clip-persist',
+                per_window_layout = '${pkgs.hyprland-per-window-layout}/bin/hyprland-per-window-layout',
                 hyprpicker = '${pkgs.hyprpicker}/bin/hyprpicker'
             },
             animations = {

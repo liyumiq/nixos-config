@@ -7,6 +7,7 @@
         };
 
         upower.enable = true;
+        power-profiles-daemon.enable = true;
 
         logind.settings.Login = {
             HandlePowerKey = "ignore";

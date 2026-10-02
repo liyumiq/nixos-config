@@ -24,7 +24,6 @@ config = lib.mkIf option.enable {
             wallpaperDir = config.host.home.paths.wallpapers;
 
             theme = {
-                activePreset = "stylix";
                 colors = {
                     base = colors.base00;
                     mantle = colors.base00;
@@ -68,6 +67,7 @@ config = lib.mkIf option.enable {
         hl.bind('SUPER+V', hl.dsp.exec_cmd('serpantinum msg toggle clipboard'))
 
         hl.bind('SUPER+L', hl.dsp.exec_cmd('serpantinum lock'))
+        hl.bind('XF86PowerOff', hl.dsp.exec_cmd('serpantinum lock'))
 
         hl.bind('SUPER+SHIFT+S', hl.dsp.exec_cmd('serpantinum screenshot'), { locked = true })
         hl.bind('SUPER+SHIFT+ALT+S', hl.dsp.exec_cmd('serpantinum screenshot --edit'), { locked = true })
