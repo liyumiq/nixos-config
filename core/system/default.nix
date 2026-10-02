@@ -2,8 +2,8 @@
     hostOption = config.host.system;
     hmUsers = config.home-manager.users;
 
-    isNiriEnabled = lib.any 
-        (cfg: lib.attrByPath [ "modules" "home" "desktop" "niri" "enable" ] false cfg) 
+    isMangoEnabled = lib.any 
+        (cfg: lib.attrByPath [ "modules" "home" "desktop" "mango" "enable" ] false cfg) 
         (builtins.attrValues hmUsers);
 in {
 
@@ -34,6 +34,8 @@ options.host.system = {
 #--- [ Config ] -----------------------------------------------------
 config = {
 
+    nix.settings.trusted-users = [ "root" "@wheel" ];
+
     networking.hostName = hostOption.hostname;
     time.timeZone = hostOption.timeZone;
     i18n.defaultLocale = hostOption.locale;
@@ -44,9 +46,5 @@ config = {
         packages = [ pkgs.terminus_font ];
     };
 
-    programs.niri = {
-        enable = isNiriEnabled;
-        useNautilus = false;
-    };
-
+    programs.mango.enable = isMangoEnabled;
 };}

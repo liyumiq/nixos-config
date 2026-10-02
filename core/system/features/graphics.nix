@@ -1,4 +1,4 @@
-{ config, lib, ... }: let
+{ config, lib, pkgs, ... }: let
     option = config.core.graphics;
 in {
 
@@ -15,6 +15,7 @@ config = lib.mkMerge [
         boot.initrd.availableKernelModules = [ "amdgpu" "i915" ];
 
         hardware.graphics = {
+            package = pkgs.mesa;
             enable = true;
             enable32Bit = true;
         };

@@ -1,17 +1,18 @@
 let
     appsToHide = [
         "btop"
-        "kvantummanager"
         "nvim"
-        "org.gnome.eog"
-        "qt5ct"
-        "qt6ct"
-        "yazi"
         "nixos-manual"
         "nvtop"
         "protontricks"
         "v2raya"
+        "yazi"
+        "qt5ct"
+        "qt6ct"
+        "kvantummanager"
+        "org.gnome.eog"
         "syncthing-ui"
+        "fcitx5-configtool"
     ];
 in {
 

@@ -2,8 +2,8 @@
     imports = [
         ./scripts/waysnap.nix
 
-        ./desktop/niri
-        ./desktop/noctalia.nix
+        ./desktop/hyprland
+        ./desktop/serpantinum.nix
 
         ./discord.nix
         ./firefox.nix

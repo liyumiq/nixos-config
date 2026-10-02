@@ -22,17 +22,18 @@ config = {
     };
 
     modules.system = {
-        steam.enable = true;
-        virtualisation.enable = true;
-        hardware = {
-            wifi.enable = true;
-            bluetooth.enable = true;
-        };
         boot = {
             tuigreet.enable = true;
             swap.enable = true;
             zram.enable = true;
         };
+        desktop.hyprland.enable = true;
+        hardware = {
+            wifi.enable = true;
+            bluetooth.enable = true;
+        };
+        steam.enable = true;
+        virtualisation.enable = true;
     };
 
 
