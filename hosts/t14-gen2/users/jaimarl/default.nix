@@ -18,33 +18,33 @@
 
     modules.home = {
         desktop = {
-            hyprland = {
-                animations.scale = 0.75;
-                extraLua = ''
-                    hl.monitor({
-                        output = 'eDP-1',
-                        mode = '1920x1080@60',
-                        scale = 1,
-                        mode = 'preferred'
-                    })
+            niri.userConfig = ''
+                output "eDP-1" {
+                    mode "1920x1080@60"
+                    scale 1
+                    hot-corners {
+                        off
+                    }
+                }
 
-                    hl.bind('SUPER+Return', hl.dsp.exec_cmd('kitty'))
-                    hl.bind('SUPER+E', hl.dsp.exec_cmd('kitty zsh -ic "y; exec zsh"'))
-                    hl.bind('SUPER+Grave', hl.dsp.exec_cmd('kitty nvim'))
-                    hl.bind('SUPER+B', hl.dsp.exec_cmd('zen-twilight'))
-                    hl.bind('SUPER+SHIFT+B', hl.dsp.exec_cmd('zen-twilight --private-window'))
+                binds {
+                    Mod+Return repeat=false { spawn "kitty"; }
+                    Mod+E repeat=false { spawn-sh "kitty zsh -ic 'y; exec zsh'"; }
+                    Mod+Grave repeat=false { spawn-sh "kitty nvim"; }
+                    Mod+B repeat=false { spawn-sh "zen-twilight"; }
+                    Mod+Shift+B repeat=false { spawn-sh "zen-twilight --private-window"; }
 
-                    hl.bind('XF86AudioMute', hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'))
-                    hl.bind('XF86AudioMicMute', hl.dsp.exec_cmd('wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'))
-                    hl.bind('XF86AudioRaiseVolume', hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+'))
-                    hl.bind('XF86AudioLowerVolume', hl.dsp.exec_cmd('wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-'))
+                    XF86AudioMute repeat=false allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+                    XF86AudioMicMute repeat=false allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+                    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"; }
+                    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"; }
 
-                    hl.bind('XF86MonBrightnessUp', hl.dsp.exec_cmd('brightnessctl s 5%+'))
-                    hl.bind('SHIFT+XF86MonBrightnessUp', hl.dsp.exec_cmd('brightnessctl s 100%'))
-                    hl.bind('XF86MonBrightnessDown', hl.dsp.exec_cmd('brightnessctl s 5%-'))
-                    hl.bind('SHIFT+XF86MonBrightnessDown', hl.dsp.exec_cmd('brightnessctl s 0%'))
-                '';
-            };
+                    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl s 5%+"; }
+                    Shift+XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl s 100%"; }
+                    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl s 5%-"; }
+                    Shift+XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl s 0%"; }
+                }
+            '';
             serpantinum.enable = true;
         };
         kitty.enable = true;

@@ -1,5 +1,6 @@
 { inputs, config, osConfig, lib, pkgs, ... }: let
     option = config.modules.home.desktop.serpantinum;
+    niri = config.modules.home.desktop.niri;
     colors = config.lib.stylix.colors.withHashtag;
 in {
 
@@ -21,7 +22,7 @@ config = lib.mkIf option.enable {
     programs.serpantinum = {
         enable = true;
         settings = {
-            wallpaperDir = config.host.home.paths.wallpapers;
+            wallpaperDir = lib.mkDefault config.host.home.paths.wallpapers;
 
             theme = {
                 colors = {
@@ -55,29 +56,31 @@ config = lib.mkIf option.enable {
         };
     };
 
-    modules.home.desktop.hyprland.extraLua = lib.mkIf osConfig.modules.system.desktop.hyprland.enable ''
-        hl.on("hyprland.start", function()
-            hl.exec_cmd('serpantinumd start')
-            hl.exec_cmd('wl-paste --type text --watch cliphist store')
-            hl.exec_cmd('wl-paste --type image --watch cliphist store')
-            hl.exec_cmd('systemctl --user enable --now easyeffects')
-        end)
 
-        hl.bind('SUPER+Space', hl.dsp.exec_cmd('serpantinum msg toggle launcher'))
-        hl.bind('SUPER+V', hl.dsp.exec_cmd('serpantinum msg toggle clipboard'))
+    xdg.configFile."niri/serpantinum.kdl".text = lib.mkIf osConfig.modules.system.desktop.niri.enable ''
+        spawn-at-startup "serpantinumd start"
+        spawn-at-startup "wl-paste --type text --watch cliphist store"
+        spawn-at-startup "wl-paste --type image --watch cliphist store"
+        spawn-at-startup "systemctl --user enable --now easyeffects"
 
-        hl.bind('SUPER+L', hl.dsp.exec_cmd('serpantinum lock'))
-        hl.bind('XF86PowerOff', hl.dsp.exec_cmd('serpantinum lock'))
+        binds {
+            Mod+Space { spawn-sh "serpantinum msg toggle launcher"; }
+            Mod+V { spawn-sh "serpantinum msg toggle clipboard"; }
 
-        hl.bind('SUPER+SHIFT+S', hl.dsp.exec_cmd('serpantinum screenshot'), { locked = true })
-        hl.bind('SUPER+SHIFT+ALT+S', hl.dsp.exec_cmd('serpantinum screenshot --edit'), { locked = true })
-        hl.bind('SUPER+CTRL+S', hl.dsp.exec_cmd('serpantinum screenshot --full'), { locked = true })
-        hl.bind('SUPER+CTRL+ALT+S', hl.dsp.exec_cmd('serpantinum screenshot --full --edit'), { locked = true })
+            Mod+L { spawn-sh "serpantinum lock"; }
 
-        hl.layer_rule({
-            match = { namespace = '^(quickshell|qs.*|traymenu|osd)$' },
-            no_anim = true
-        })
+            Mod+Shift+S { spawn-sh "serpantinum screenshot"; }
+            Mod+Ctrl+S { spawn-sh "serpantinum screenshot --full"; }
+        }
+
+        layout {
+            background-color "transparent"
+        }
+
+        layer-rule {
+            match namespace="^wallpaper-bg"
+            place-within-backdrop true
+        }
     '';
 
 };}

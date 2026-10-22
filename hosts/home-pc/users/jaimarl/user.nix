@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "ydotool" ];
     shell = pkgs.zsh;
 
 }

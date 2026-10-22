@@ -1,10 +1,6 @@
 { config, lib, pkgs, ... }: let
     hostOption = config.host.system;
     hmUsers = config.home-manager.users;
-
-    isMangoEnabled = lib.any 
-        (cfg: lib.attrByPath [ "modules" "home" "desktop" "mango" "enable" ] false cfg) 
-        (builtins.attrValues hmUsers);
 in {
 
     imports = [
@@ -47,5 +43,4 @@ config = {
         packages = [ pkgs.terminus_font ];
     };
 
-    programs.mango.enable = isMangoEnabled;
 };}

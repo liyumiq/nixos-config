@@ -27,7 +27,7 @@ config = {
             swap.enable = true;
             zram.enable = true;
         };
-        desktop.hyprland.enable = true;
+        desktop.niri.enable = true;
         hardware = {
             bluetooth.enable = true;
         };

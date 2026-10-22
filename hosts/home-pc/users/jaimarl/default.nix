@@ -18,32 +18,33 @@
 
     modules.home = {
         desktop = {
-            hyprland = {
-                animations.scale = 0.75;
-                extraLua = ''
-                    hl.monitor({
-                        output = 'DP-3',
-                        mode = '1920x1080@144',
-                        position = '0x0',
-                        scale = 1,
-                        mode = 'preferred'
-                    })
-                    hl.monitor({
-                        output = 'HDMI-A-1',
-                        mode = '1920x1080@60',
-                        position = '1920x0',
-                        scale = 1
-                    })
+            niri.userConfig = ''
+                output "DP-3" {
+                    mode "1920x1080@144"
+                    scale 1
+                    focus-at-startup
+                    hot-corners {
+                        off
+                    }
+                }
+                output "HDMI-A-1" {
+                    mode "1920x1080@60"
+                    scale 1
+                    hot-corners {
+                        off
+                    }
+                }
 
-                    hl.bind('SUPER+Return', hl.dsp.exec_cmd('kitty'))
-                    hl.bind('SUPER+E', hl.dsp.exec_cmd('kitty zsh -ic "y; exec zsh"'))
-                    hl.bind('SUPER+Grave', hl.dsp.exec_cmd('kitty nvim'))
-                    hl.bind('SUPER+B', hl.dsp.exec_cmd('zen-twilight'))
-                    hl.bind('SUPER+SHIFT+B', hl.dsp.exec_cmd('zen-twilight --private-window'))
+                Mod+Return repeat=false { spawn "kitty"; }
+                Mod+E repeat=false { spawn-sh "kitty zsh -ic 'y; exec zsh'"; }
+                Mod+Grave repeat=false { spawn-sh "kitty nvim"; }
+                Mod+B repeat=false { spawn-sh "zen-twilight"; }
+                Mod+Shift+B repeat=false { spawn-sh "zen-twilight --private-window"; }
 
-                    hl.bind('XF86AudioMute', hl.dsp.exec_cmd('${pkgs.playerctl}/bin/playerctl play-pause'))
-                '';
-            };
+                XF86AudioMute repeat=false { spawn-sh "${pkgs.playerctl}/bin/playerctl play-pause"; }
+
+                Mod+C repeat=false { spawn-sh "~/Projects/spam.sh"; }
+            '';
             serpantinum.enable = true;
         };
         kitty.enable = true;

@@ -16,18 +16,20 @@ config = {
 
     #--- Modules --------------------------------
     core = {
+        bootloader.useGrub = true;
         audio.monoPlayback.enable = true;
         graphics.nvidia.enable = true;
     };
 
     modules.system = {
-        aagl.genshin.enable = true;
-        steam.enable = true;
         boot = {
             tuigreet.enable = true;
             swap.enable = true;
             zram.enable = true;
         };
+        desktop.niri.enable = true;
+        aagl.genshin.enable = true;
+        steam.enable = true;
     };
 
 

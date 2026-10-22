@@ -22,6 +22,10 @@
             url = "github:FlameFlag/nixcord";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        craftapps = {
+            url = "github:olafkfreund/nix-craftapps";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 
         aagl = {
             url = "github:ezKEa/aagl-gtk-on-nix";

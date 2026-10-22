@@ -2,7 +2,7 @@
     imports = [
         ./scripts/waysnap.nix
 
-        ./desktop/hyprland
+        ./desktop/niri
         ./desktop/serpantinum.nix
 
         ./discord.nix

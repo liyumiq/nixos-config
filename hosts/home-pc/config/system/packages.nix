@@ -12,6 +12,7 @@
             enableGlobalCompInit = false;
         };
         starship.enable = true;
+        ydotool.enable = true;
     };
 
 }

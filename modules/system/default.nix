@@ -4,7 +4,7 @@
         ./boot/swap.nix
         ./boot/zram.nix
 
-        ./desktop/hyprland.nix
+        ./desktop/niri.nix
         
         ./hardware/bluetooth.nix
 

@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
+
+    imports = [ inputs.craftapps.homeManagerModules.default ];
 
     home.packages = with pkgs; [
         ripgrep
@@ -36,6 +38,11 @@
         btop.enable = true;
         yazi.enable = true;
         obsidian.enable = true;
+
+        craftapps = {
+            enable = true;
+            apps.photocraft.enable = true;
+        };
     };
 
 }
